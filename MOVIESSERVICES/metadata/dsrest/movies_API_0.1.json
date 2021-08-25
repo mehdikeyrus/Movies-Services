@@ -1,0 +1,138 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "No description",
+    "version" : "2.0.0",
+    "title" : "movies API"
+  },
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/Addmovie" : {
+      "post" : {
+        "summary" : "Add a movie",
+        "description" : "cet api permet d'ajouter movie ",
+        "consumes" : [ ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Movies input"
+          },
+          "x-examples" : {
+            "application/json" : "{\n   \"id\": \"B01DY8NDBM\",\n   \"title\": \"Star Trek\",\n   \"director\": \"J.J. Abrams\",\n   \"releaseDate\": \"06/14/2016\",\n   \"runTime\": \"126\",\n   \"studio\": \"Paramount\",\n   \"price\": \"29.96\",\n   \"discType\": \"4k\"\n}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "status 200"
+          },
+          "302" : {
+            "description" : "Status 302",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            },
+            "examples" : {
+              "application/json" : "{\n   \"id\": \"B01DY8NDBM\",\n   \"errorCode\": \"23000\",\n   \"errorMessage\": \"Duplicate entry 'B01DY8NDBM' for ker 'PRIMARY' -Line:0\"\n}"
+            }
+          }
+        }
+      },
+      "parameters" : [ ]
+    },
+    "/movies" : {
+      "get" : {
+        "summary" : "Get the list of movies",
+        "description" : "load list of movies",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "status 200",
+            "schema" : {
+              "$ref" : "#/definitions/movies output"
+            }
+          }
+        }
+      },
+      "parameters" : [ ]
+    },
+    "/movies/{id}" : {
+      "delete" : {
+        "summary" : "Delete a movie",
+        "description" : "Delete a movie",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "status 200"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    }
+  },
+  "definitions" : {
+    "Movies input" : {
+      "type" : "object",
+      "example" : "{\n   \"id\": \"B01DY8NDBM\",\n   \"title\": \"Star Trek\",\n   \"director\": \"J.J. Abrams\",\n   \"releaseDate\": \"06/14/2016\",\n   \"runTime\": \"126\",\n   \"studio\": \"Paramount\",\n   \"price\": \"29.96\",\n   \"discType\": \"4k\"\n}"
+    },
+    "movies output" : {
+      "type" : "object",
+      "properties" : {
+        "Movie" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string"
+              },
+              "title" : {
+                "type" : "string"
+              },
+              "director" : {
+                "type" : "string"
+              },
+              "releaseDate" : {
+                "type" : "string"
+              },
+              "runTime" : {
+                "type" : "string"
+              },
+              "studio" : {
+                "type" : "string"
+              },
+              "price" : {
+                "type" : "string"
+              },
+              "discType" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      },
+      "example" : "{\r\n\t\"Movie\":[\r\n   {\r\n      \"id\": \"B01DY8NDBM\",\r\n      \"title\": \"Star Trek\",\r\n      \"director\": \"J.J. Abrams\",\r\n      \"releaseDate\": \"06/14/2016\",\r\n      \"runTime\": \"126\",\r\n      \"studio\": \"Paramount\",\r\n      \"price\": \"29.96\",\r\n      \"discType\": \"4k\"\r\n   },\r\n   {\r\n      \"id\": \"B008JFUPK8\",\r\n      \"title\": \"Man of Steel\",\r\n      \"director\": \"Zack Snyder\",\r\n      \"releaseDate\": \"11/12/2013\",\r\n      \"runTime\": \"143\",\r\n      \"studio\": \"Warner Bros\",\r\n      \"price\": \"10.00\",\r\n      \"discType\": \"Blu-ray\"\r\n   },\r\n   {\r\n      \"id\": \"B008JFUO4U\",\r\n      \"title\": \"Oblivion\",\r\n      \"director\": \"Joseph Kosinski\",\r\n      \"releaseDate\": \"08/16/2013\",\r\n      \"runTime\": \"124\",\r\n      \"studio\": \"Universal\",\r\n      \"price\": \"8.78\",\r\n      \"discType\": \"Blu-ray\"\r\n   },\r\n   {\r\n      \"id\": \"B01BHKO34U\",\r\n      \"title\": \"Mad Max Fury Road\",\r\n      \"director\": \"George Miller\",\r\n      \"releaseDate\": \"03/01/2016\",\r\n      \"runTime\": \"120\",\r\n      \"studio\": \"Warner Bros\",\r\n      \"price\": \"31.02\",\r\n      \"discType\": \"4k\"\r\n   },\r\n   {\r\n      \"id\": \"B01BLS9EVA\",\r\n      \"title\": \"Deadpool\",\r\n      \"director\": \"Tim Miller\",\r\n      \"releaseDate\": \"05/10/2016\",\r\n      \"runTime\": \"108\",\r\n      \"studio\": \"20th Century Fox\",\r\n      \"price\": \"12.99\",\r\n      \"discType\": \"DVD\"\r\n   }\r\n]}"
+    },
+    "Error" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "errorCode" : {
+          "type" : "string"
+        },
+        "errorMessage" : {
+          "type" : "string"
+        }
+      },
+      "example" : "{\r\n   \"id\": \"B01DY8NDBM\",\r\n   \"errorCode\": \"23000\",\r\n   \"errorMessage\": \"Duplicate entry 'B01DY8NDBM' for ker 'PRIMARY' -Line:0\"\r\n}"
+    }
+  }
+}
