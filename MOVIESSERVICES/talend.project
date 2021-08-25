@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Project xmi:id="_2jHxQAWIEeyh-vMJ9AOeSA" label="MoviesServices" description="Project de gestion des films" language="java" technicalLabel="MOVIESSERVICES" author="_2jHxQQWIEeyh-vMJ9AOeSA" productVersion="Talend Cloud API Services Platform-7.3.1.20210623_0656-patch" url="{&quot;commitLogPattern&quot;:&quot;{0}&quot;,&quot;location&quot;:&quot;https://github.com/mehdikeyrus/Movies-Services.git&quot;,&quot;settings&quot;:&quot;000&quot;,&quot;storage&quot;:&quot;git&quot;}" type="DQ" bigData="false">
+    <migrationTask xmi:id="_2jNQ0AWIEeyh-vMJ9AOeSA" id="org.talend.repository.model.migration.CheckProductVersionMigrationTask" breaks="7.1.0" version="7.1.1"/>
+  </TalendProperties:Project>
+  <TalendProperties:User xmi:id="_2jHxQQWIEeyh-vMJ9AOeSA" login="mehdi.meksi@trial35041.us.talend.com" firstName="mehdi" lastName="meksi" type="DQ"/>
+</xmi:XMI>
